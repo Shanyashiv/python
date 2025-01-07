@@ -1,0 +1,22 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint
+
+k = 0.05
+c_w = 0.0
+c_g0 = 0.1
+
+def model(c_g, t):
+  return -k * (c_g - c_w)
+
+t = np.linspace(0, 10, 100)
+c_g = odeint(model, c_g0, t)
+
+plt.plot(t, c_g, label='c_g(t)', color='blue')
+plt.title('Concentration of pollutant in gas phase over time')
+plt.xlabel('time(s)')
+plt.ylabel('concentration(mol/m^3)')
+plt.axhline(y=c_w, color='r', linestyle='--', label='c_w=0')
+plt.legend()
+plt.grid()
+plt.show()
