@@ -1,0 +1,18 @@
+import numpy as np
+from scipy.integrate import odeint
+import matplotlib.pyplot as plt
+
+k=0.1
+C_A0 = 1
+
+def dc_A(C_A,t):
+    return -k*C_A
+
+t_span= np.linspace(0,100,1001)
+C_A=odeint(dc_A,C_A0,t_span)
+plt.plot(t_span,C_A)
+plt.xlabel('Time (s)')
+plt.ylabel('Concentration (mol/L)')
+plt.title('Concentration Profile in a batch reactor (First-Order Reaction)')
+plt.grid(True)
+plt.show()
