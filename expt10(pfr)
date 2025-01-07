@@ -1,0 +1,18 @@
+import numpy as np
+from scipy.integrate import odeint
+import matplotlib.pyplot as plt
+
+# Parameters
+k, L, ca0, ni, u = 0.1, 10, 0.6, -1, 0.5
+x = np.linspace(0, L, 101)
+
+# Solve ODE
+sol = odeint(lambda ca, x: ni * k * ca / u, ca0, x)
+
+# Plot
+plt.plot(x, sol)
+plt.plot(x[::4], [ca0 * np.exp(-x*k/u) for x in x[::4]],'o')
+plt.xlabel('x')
+plt.ylabel('$C_{a}$')
+plt.legend(['numerical', 'analytical'])
+plt.plot
