@@ -1,0 +1,13 @@
+import math
+
+# Mole fractions and molar masses
+yN2, yO2, yAr = 0.781, 0.209, 0.01
+M_N2, M_O2, M_Ar = 28, 32, 39.9
+
+# Calculate molar mass of air
+M_air = yN2 * M_N2 + yO2 * M_O2 + yAr * M_Ar
+print(f"The molar mass of air is {M_air} kg/kmol")
+
+# Calculate and print mass fractions
+w_N2, w_O2, w_Ar = yN2 * M_N2 / M_air, yO2 * M_O2 / M_air, yAr * M_Ar / M_air
+print(f"The mass fractions of N2, O2 and Ar in dry standard atmosphere are {100 * w_N2:.2f}%, {100 * w_O2:.2f}% and {100 * w_Ar:.2f}% respectively")
