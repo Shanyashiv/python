@@ -1,0 +1,19 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters
+L, Q, C_A0, k, num_elements = 1, 0.1, 1, 0.1, 100
+
+# Euler method to calculate concentration profile
+x = np.linspace(0, L, num_elements)
+C_A = C_A0 * np.exp(-k * x)  # Analytical solution
+
+# Plotting
+plt.plot(x, C_A, label='Concentration of A')
+plt.axhline(0, color='r', linestyle='--', label='C_A = 0')
+plt.xlabel('Position Along Reactor (m)')
+plt.ylabel('Concentration of A (mol/L)')
+plt.title('Concentration Profile of Reactant A Along the Reactor')
+plt.grid()
+plt.legend()
+plt.show()
